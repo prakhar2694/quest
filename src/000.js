@@ -2,6 +2,19 @@ const express = require('express')
 const app = express()
 const port = 3000
 
+//const express = require('express')
+//const https = require('https'),
+//fs=require("fs")
+
+//const options = {
+//  key: fs.readFileSync("src/serverkey.key"),
+//  cert: fs.readFileSync("src/server.crt")
+//};
+
+//const app = express()
+//const port = 3000
+
+
 app.get('/', function (req, res) {
 const { exec } = require('child_process');
 exec('bin/001', (err, stdout, stderr) => {
@@ -47,4 +60,5 @@ exec('bin/006 ' + JSON.stringify(req.headers), (err, stdout, stderr) => {
 });
 });
 
+//https.createServer(options, app).listen(3000);
 app.listen(port, () => console.log(`Rearc quest listening on port ${port}!`))
